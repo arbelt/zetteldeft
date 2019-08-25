@@ -167,6 +167,9 @@ The required preamble and some other initial settings.
 To know how this package works, please skip right past this to the next section.
 
 *** Preamble
+:PROPERTIES:
+:ID:       8E11D344-5C7D-4DF8-B2CF-F8747479EDC6
+:END:
 
 Some declaration.
 
@@ -205,6 +208,9 @@ Some declaration.
 #+END_SRC
 
 *** Requirements
+:PROPERTIES:
+:ID:       957B61C3-60C3-421B-9099-05A6C5ED1036
+:END:
 
 =deft= is required, obviously, and =avy= is needed for some utility functions.
 
@@ -226,6 +232,9 @@ So let's check whether that function is available, and show a message when it's 
 #+END_SRC
 
 *** Customization
+:PROPERTIES:
+:ID:       F692E00B-C132-4F69-846A-249F4DD049DC
+:END:
 
 For easy but minor customization options.
 
@@ -243,6 +252,9 @@ In this section:
 :end:
 *** Search functions
 **** =zd-get-thing-at-point= returns string
+:PROPERTIES:
+:ID:       82B05FF1-9E02-4D65-AC5A-DAE2CC91C509
+:END:
 
 Returns the thing at point as string.
 
@@ -268,6 +280,9 @@ Based on snippet suggested by =saf-dmitry= on deft's [[https://github.com/jrblev
 #+END_SRC
 
 **** =zd-search-at-point= thing at point
+:PROPERTIES:
+:ID:       5173212E-ACD6-4355-BCF2-653A67439F02
+:END:
 
 Search the thing at point.
 
@@ -285,6 +300,9 @@ Thing can be a double-bracketed link, a hashtag, or a word."
 #+END_SRC
 
 **** =zd-search-global= for string
+:PROPERTIES:
+:ID:       FD9AA690-19B4-4655-93AD-E69DDF59626A
+:END:
 
 Search with deft for given string.
 If there is only one result, that file is opened, unless additional argument is true.
@@ -308,6 +326,9 @@ If there is only one result, open that file (unless DNTOPN is true)."
 #+END_SRC
 
 **** =zd-search-filename= for string
+:PROPERTIES:
+:ID:       2ED4432B-6E5B-4C09-A0E0-F543F7ECEBEB
+:END:
 
 Deft search on filename.
 If there is only one result, open that file.
@@ -329,6 +350,9 @@ Open if there is only one result (in another window if OTHERWINDOW is non-nill).
 #+END_SRC
 
 **** =zd-search-current-id= searches current id
+:PROPERTIES:
+:ID:       2DCAE714-06AE-4991-AEF9-2B03650CF181
+:END:
 
 Deft search on the id of the current file.
 
@@ -351,6 +375,9 @@ Open if there is only one result."
 #+END_SRC
 
 **** =zd-get-file-list= returns file list with search term
+:PROPERTIES:
+:ID:       FA504851-641E-4D20-AB0C-0C004591B33F
+:END:
 
 Get a list of the files with given search string.
 
@@ -385,6 +412,9 @@ This identifying character can be changed by setting the =zd-link-indicator= var
 Note that if this variable is set to nil, the =zd-avy-link-search= and =zd-avy-file-search= functions will not work.
 
 **** =zd-id-format= for generating ID strings
+:PROPERTIES:
+:ID:       A801511D-3CF5-432E-9A90-1C4D7953FBD5
+:END:
 
 Format used to generate ids.
 
@@ -425,6 +455,9 @@ Next up, a function to generate an ID string in the above format.
 #+END_SRC
 
 **** =zd-id-regex= for finding IDs
+:PROPERTIES:
+:ID:       4E80E072-598D-439C-87C2-AA81D1712244
+:END:
 
 The regular expression used to search for zetteldeft IDs as set in =zd-id-format=.
 
@@ -433,7 +466,7 @@ The default regex dictates that a zetteldeft ID should consist of:
  2. followed by exactly 3 sets of a dash and two or more numbers
 
 #+BEGIN_SRC emacs-lisp
-(defcustom zd-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{3\\}"
+(defcustom zd-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{2\\}[-t][0-9]\\{2,\\}"
   "The regular expression used to search for zetteldeft IDs.
 Set it so that it matches strings generated with
 `zd-id-format'."
@@ -444,6 +477,9 @@ Set it so that it matches strings generated with
 If you use a ="%Y%m%d%H%M"= format for note naming, you might want to set the regular expression to ="20[0-9]\\{10\\}"= so that it matches any string starting with =20= followed by 10 other digits.
 
 **** =zd-link-indicator= prepends ID links
+:PROPERTIES:
+:ID:       43622704-EA15-4EFF-8B98-443C3D9DC7DB
+:END:
 
 To make it easier to distinguish links to zetteldeft notes, the ID can be prepended with a symbol.
 By default, this is set to =§=, but it can be changed (or nil).
@@ -458,6 +494,9 @@ This variable should be a string containing only one character."
 #+END_SRC
 
 **** =zd-lift-id= filters the ID from a string
+:PROPERTIES:
+:ID:       719ECBD2-463F-4871-8ABC-AF52C44A9EE7
+:END:
 
 Return the zetteldeft ID from any string.
 
@@ -484,6 +523,9 @@ Here is a little test.
 : 2018-11-09-1934
 
 **** =zd-tag-regex= for finding tags
+:PROPERTIES:
+:ID:       A5C41377-BA07-475F-9EBA-D5850C0388E5
+:END:
 
 This regular expression indicates what tags can look like.
 
@@ -501,6 +543,9 @@ Note that this regular expression does not handle hashtags used in, for example,
 
 *** Finding & linking files from minibuffer
 **** =zd-find-file= opens file from minibuffer
+:PROPERTIES:
+:ID:       32E9E22A-C03F-4409-96D5-23B5221DF45C
+:END:
 
 Select file from the deft folder from the minibuffer.
 
@@ -516,6 +561,9 @@ Based on =deft-find-file=.
 #+END_SRC
 
 **** =zd-find-file-id-insert= inserts file id
+:PROPERTIES:
+:ID:       EB715C3B-DD16-42E8-B8D1-EBEA2FF6F21C
+:END:
 
 Select file from minibuffer and insert its link, prepended by =§= (or =zd-link-indicator= to be precise).
 
@@ -531,6 +579,9 @@ Based on =deft-find-file=.
 #+END_SRC
 
 **** =zd-find-file-full-title-insert= inserts id and title
+:PROPERTIES:
+:ID:       75977F4C-0C64-4B4B-8A0E-73A3E378FC42
+:END:
 
 Select file from minibuffer and insert its link, prepended by =§= (or =zd-link-indicator=).
 
@@ -547,6 +598,9 @@ Based on =deft-find-file=.
 
 *** New file creation
 **** =zd-new-file= creates new file
+:PROPERTIES:
+:ID:       58A653C0-8108-408F-8702-CE893D8D3CAD
+:END:
 
 Create new file with filename as =zd-id-format= and a string.
 
@@ -578,6 +632,9 @@ When `evil' is loaded, enter instert state."
 #+END_SRC
 
 **** =zd-new-file-and-link= inserts generated id
+:PROPERTIES:
+:ID:       F4D4B838-13F2-4380-872F-04D031E5F5DB
+:END:
 
 Generate an id, append a name, and generate a new file based on id and link.
 
@@ -594,6 +651,9 @@ Creates new deft file with id and STR as name."
 
 *** Moving around with =avy=
 **** Following links with =zd-follow-link=
+:PROPERTIES:
+:ID:       1E555E4F-03F8-49C8-8E8E-6FCF0A931F22
+:END:
 
 This is a wrapper function to follow links to a file.
 When point is in a link, open the note it links to.
@@ -610,6 +670,9 @@ Prompts for a link to follow with `zd-avy-file-search' if it isn't."
 #+END_SRC
 
 **** =zd-avy-tag-search=
+:PROPERTIES:
+:ID:       1AA51BE8-4BB2-4F2D-A69C-AE51DB8A33BC
+:END:
 
 Use avy to jump to a tag and search for it.
 
@@ -628,6 +691,9 @@ Tags are filtered with `zd-tag-regex'."
 #+END_SRC
 
 **** =zd-avy-link-search=
+:PROPERTIES:
+:ID:       464EDC59-FE58-4143-A361-B80AEC5F8070
+:END:
 
 Use avy to jump to a link search for its ID in deft.
 
@@ -648,6 +714,9 @@ Opens immediately if there is only one result."
 #+END_SRC
 
 **** =zd-avy-file-search=
+:PROPERTIES:
+:ID:       CCEED417-7D26-46F0-8DD7-EF55F9948F1E
+:END:
 
 Use avy to jump to a link and find the corresponding file.
 Since the ID should be unique, there should be only one result.
@@ -691,10 +760,14 @@ When only one window is active, split it first."
 
 *** Utility functions
 **** Deft new search
+:PROPERTIES:
+:ID:       3987AE09-BE65-45E9-B39E-B76BA86D2C04
+:END:
 
 The following function launches deft, clears the filter and enters =evil-insert-state= (when evil is used).
 
 #+BEGIN_SRC emacs-lisp
+;;;###autoload
 (defun zd-deft-new-search ()
   "Launch deft, clear filter and enter insert state."
   (interactive)
@@ -704,6 +777,9 @@ The following function launches deft, clears the filter and enters =evil-insert-
 #+END_SRC
 
 **** =zd--check= checks if file is part of zetteldeft
+:PROPERTIES:
+:ID:       EFCCF34A-79C6-4918-9631-636943EC41AA
+:END:
 
 A quick but necessary check to see whether the provided file is part of the deft directory.
 
@@ -726,6 +802,9 @@ whether it has `deft-directory' somewhere in its path."
 #+END_SRC
 
 **** =zd-file-rename= renames visited file
+:PROPERTIES:
+:ID:       0F7F9FF8-E17F-4B2F-8ACA-C13F0C8F48B9
+:END:
 
 Rename the current file.
 Based on the function =deft-rename-file= with only minor changes in the way =old-filename= is set: from current buffer rather than from =deft= search buffer.
@@ -772,6 +851,9 @@ Does so by looking for `zd-title-prefix'."
 #+END_SRC
 
 **** =zd-lift-file-title= returns file title from path
+:PROPERTIES:
+:ID:       1173743B-4BF4-4A72-BC63-13EAFEFAD88A
+:END:
 
 Returns only the file title from a file, removing path, extension, and link ID.
 
@@ -781,11 +863,14 @@ Returns only the file title from a file, removing path, extension, and link ID.
 ZDFILE should be a full path to a note."
   (let ((baseName (file-name-base zdFile)))
     (replace-regexp-in-string
-     "[0-9]\\{2,\\}-[0-9-]+[[:space:]]"
+     "[0-9]\\{2,\\}-[0-9-]+[[:space:]-]"
      "" baseName)))
 #+END_SRC
 
 **** =zd-insert-title= inserts file title in org-mode
+:PROPERTIES:
+:ID:       46617363-6255-4E24-9918-3F724A8CF8B2
+:END:
 
 Easily insert the title of the current file.
 
@@ -831,6 +916,9 @@ Don't forget to add `\\n' at the beginning to start a new line."
 #+END_SRC
 
 **** =zd-count-words= counts total number of words
+:PROPERTIES:
+:ID:       09FE5247-4929-439F-A77A-F84A46B00A59
+:END:
 
 To count the total number of words, lets loop over all the files and count words in each.
 The total is printed in the minibuffer.
@@ -848,6 +936,9 @@ The total is printed in the minibuffer.
 #+END_SRC
 
 **** =zd-copy-id-current-file= copies id in filename
+:PROPERTIES:
+:ID:       36BB7321-9FD6-451E-8115-922BDC497592
+:END:
 
 Add the ID from the current file to the kill ring.
 
@@ -869,6 +960,9 @@ Steps:
 #+END_SRC
 
 **** =zd-id-to-full-title= returns title from ID
+:PROPERTIES:
+:ID:       C041ADDE-CA8A-4846-BAE4-20B29AFA0FDF
+:END:
 
 Convert a zetteldeft ID into its full title.
 
@@ -895,6 +989,9 @@ Throws an error when either none or multiple files are found."
 Use =zd-tag-buffer= to create a buffer with all tags.
 
 *** =zd-all-tags= returns them all
+:PROPERTIES:
+:ID:       AB2E1F7E-40F2-4EEC-9DB5-5B72D836DBC9
+:END:
 
 Extracting tags with =zd-extract-tags=.
 
@@ -908,6 +1005,9 @@ Extracting tags with =zd-extract-tags=.
 #+END_SRC
 
 *** =zd-tag-buffer= puts all tags in a buffer
+:PROPERTIES:
+:ID:       EFBD8DA4-1611-4AE6-AE62-531E0F39C225
+:END:
 
 The name of the buffer we'll be using:
 
@@ -936,6 +1036,9 @@ Move to the =zd-tag-buffer-name=
 Some utility functions to achieve all of this.
 
 **** =zd-tag-format= adjusts the tag finding regex
+:PROPERTIES:
+:ID:       4CAE0A18-9231-45B1-966D-A603984297D4
+:END:
 
 The regular expression used to filter out tags, =zd-tag-regex= works, but doesn't filter strictly enough.
 Hashtags used in URLs are also found, for example.
@@ -947,6 +1050,9 @@ That's why we can make the existing regex more precise by stating that tags shou
 #+END_SRC
 
 **** =zd-extract-tags= from a file
+:PROPERTIES:
+:ID:       70FDFB73-6C6B-47DB-8365-0673E84805F7
+:END:
 
 Open a given file in a temporary buffer.
 Loop a search for the tag regexp.
@@ -992,6 +1098,9 @@ More documentation can be found below.
     
 *** List of links
 **** =zd-insert-list-links= generates list with tagged files
+:PROPERTIES:
+:ID:       02A5E3E8-79F4-4D32-A437-5AABC27D40DD
+:END:
 
 Creates and inserts a list with links to all files with selected search term.
 
@@ -1014,6 +1123,9 @@ The =when= part is there so that this deletion is not attempted if the current b
 #+END_SRC
 
 **** =zd-insert-list-links-missing= generates list with new links
+:PROPERTIES:
+:ID:       C3EB7D84-626A-40A8-8C3E-E23486F4058A
+:END:
 
 Does the same as the above function, but only inserts IDs that aren't already present in the current file.
 In contrast with =zd-insert-list-links=, this function can only be used from within a zetteldeft note.
@@ -1069,6 +1181,9 @@ that function."
 #+END_SRC
 
 **** =zd-list-entry-file-link= includes a file link as list entry
+:PROPERTIES:
+:ID:       AE6CACAB-B3F9-4267-943B-E8AA6556D303
+:END:
 
 Inserts for given file a link id and title as a list entry.
 
@@ -1155,6 +1270,9 @@ Before we look at the functions, a note on limitations of the current implementa
    As a solution, use =org-sort= manually after running =zd-org-search-include=.
 
 **** =zd-org-search-include= generates =#+INCLUDE= syntax
+:PROPERTIES:
+:ID:       9F7101B2-2853-422D-A369-15BF6103DA28
+:END:
 
 Asks user for a search string and inserts headers and =#+INCLUDE= code for all files with said tag.
 When used on =#tag=, make sure to include the =#= manually.
@@ -1169,6 +1287,9 @@ Prompt for search string when called interactively."
 #+END_SRC
 
 **** =zd-org-search-insert= generates titles & file content
+:PROPERTIES:
+:ID:       3EEB4A08-CEE5-4DB3-9789-EA6CC76C20D6
+:END:
 
 Very similar to the previous function, but rather than writing syntax to include files, insert their contents directly.
 
@@ -1184,6 +1305,9 @@ Prompt for search string when called interactively."
 
 *** Helper functions
 **** =zd-insert-file-contents= returns the contents of a file
+:PROPERTIES:
+:ID:       E848DA99-EB91-4264-9BD6-4D7147D5B643
+:END:
 
 Returns the contents of a file.
 
@@ -1201,6 +1325,9 @@ Optional: leave out first REMOVELINES lines."
 #+END_SRC
 
 **** =zd-org-include-file= includes a file in =org= format
+:PROPERTIES:
+:ID:       22E978A3-64EA-4B14-B8ED-D0BC8E6C5819
+:END:
 
 Inserts the title as a new header, with the =#+INCLUDE= line below.
 Includes only from the second line onward, so that any =#+TITLE= lines are omitted.
@@ -1216,6 +1343,9 @@ Includes only from the second line onward, so that any =#+TITLE= lines are omitt
 #+END_SRC
 
 **** =zd-org-insert-file= inserts a files content
+:PROPERTIES:
+:ID:       2A29D27F-BC41-4745-9206-D7C7EA8071AA
+:END:
 
 For a file, insert its title and contents (without first 3 lines).
 
@@ -1261,6 +1391,9 @@ It's worth noting, again, that this is very provisional.
  
 *** Graph functions
 **** =zd-org-graph-search= creates graph from search string
+:PROPERTIES:
+:ID:       F894F9C5-B563-4EBB-9DE8-3D5B1B2B363F
+:END:
 
 An org code block with =graphviz= code for a =graph.pdf=.
 
@@ -1284,6 +1417,9 @@ STR should be the search the resulting notes of which should be included in the 
 #+END_SRC
 
 **** =zd-org-graph-note= creates graph from note
+:PROPERTIES:
+:ID:       A60A49D8-D5E2-4863-8369-10C612EF6BF8
+:END:
 
 Insert an org source code block for a graphviz presentation of a note and its connections.
 
@@ -1308,6 +1444,9 @@ When called interactively, select a file from the completion interface.
 
 *** Building blocks
 **** =zd-graph-syntax-begin= provides opening syntax
+:PROPERTIES:
+:ID:       15AC9EA4-20AD-4607-905A-CF9CA44799E8
+:END:
 
 Within graphviz, I advise to use =fdp=, =twopi= (which overlaps more) or =circo= as layouts.
 
@@ -1319,6 +1458,9 @@ Within graphviz, I advise to use =fdp=, =twopi= (which overlaps more) or =circo=
 #+END_SRC
           
 **** =zd-graph-syntax-end= provides closing syntax
+:PROPERTIES:
+:ID:       E58DCE0E-05CB-419A-8C50-9A83C202DE99
+:END:
 
 #+BEGIN_SRC emacs-lisp
 (defcustom zd-graph-syntax-end
@@ -1327,6 +1469,9 @@ Within graphviz, I advise to use =fdp=, =twopi= (which overlaps more) or =circo=
 #+END_SRC
 
 **** =zd-extract-links= pulls links from a file
+:PROPERTIES:
+:ID:       9B696034-7D8C-4129-B668-D44150C123BF
+:END:
 
 Very similar to the =zd-extract-tags= function, but returns links instead of storing them.
 
@@ -1347,6 +1492,9 @@ Very similar to the =zd-extract-tags= function, but returns links instead of sto
 #+END_SRC
 
 **** =zd-graph-insert-links= inserts graphviz links
+:PROPERTIES:
+:ID:       82DF3813-F412-4107-9A6C-119A3493CDCF
+:END:
 
 Insert the sanitized ID from the file, followed by an arrow and all of the links.
 
@@ -1367,6 +1515,9 @@ Any inserted ID is also stored in `zd-graph--links'."
 #+END_SRC
 
 **** =zd-graph-insert-title= inserts graphviz title line
+:PROPERTIES:
+:ID:       8B3DD2F2-6534-4E63-B790-0699F2A03062
+:END:
 
 Titles have to be inserted in the correct =graphviz= format, like so:
 
@@ -1390,6 +1541,9 @@ The following function should achieve that.
 The title is taken from the file string and any additional quotes removed.
 
 **** =zd-graph-store-link= stores provided notes
+:PROPERTIES:
+:ID:       2F98AA86-CEBD-4ECF-B463-25DEA4246360
+:END:
 
 For future reference, linked files are stored in =zd-graph--links=.
 This function facilitates that process.
@@ -1412,6 +1566,9 @@ and the the function first looks for the corresponding file."
 #+END_SRC
 
 **** =zd-graph-insert-additional-links= inserts stored links
+:PROPERTIES:
+:ID:       F5A0A0A0-31E6-43EB-977B-D5D0EA249DB3
+:END:
 
 Insert links stored in the =zd-graph--links= list.
 Except the first list item, as this is considered the base file already included.
@@ -1425,6 +1582,9 @@ Except the first list item, as this is considered the base file already included
 #+END_SRC
 
 **** =zd-graph-insert-all-titles= inserts all stored titles
+:PROPERTIES:
+:ID:       6284A980-266E-4B70-ABAF-F80A3EC25628
+:END:
 
 Insert all titles stored in =zd-graph--links=.
 
@@ -1440,6 +1600,9 @@ Insert all titles stored in =zd-graph--links=.
 
 ** Aesthetics
 *** Highlighting zetteldeft links
+:PROPERTIES:
+:ID:       E2431F04-2C39-4CB9-AC1D-3442476D72ED
+:END:
 
 To highlight zetteldeft links, let's add a =font-lock= keyword to =org-mode=.
 
@@ -1453,6 +1616,9 @@ The regex used for highlighting is the =zd-id-regex= prepended by =zd-link-indic
 For some reason, highlighting is not working in org comments.
 
 ** End of package
+:PROPERTIES:
+:ID:       0B2647AE-3057-490F-83F3-DB49F82A70F4
+:END:
 
 That's all folks!
 

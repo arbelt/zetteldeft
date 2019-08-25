@@ -120,7 +120,7 @@ function to see which placeholders can be used."
   "Generate an ID in the format of `zd-id-format'."
   (format-time-string zd-id-format))
 
-(defcustom zd-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{3\\}"
+(defcustom zd-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{2\\}[-t][0-9]\\{2,\\}"
   "The regular expression used to search for zetteldeft IDs.
 Set it so that it matches strings generated with
 `zd-id-format'."
@@ -245,6 +245,7 @@ When only one window is active, split it first."
       (select-window (aw-select "Select window..."))
       (zd-search-filename ID))))
 
+;;;###autoload
 (defun zd-deft-new-search ()
   "Launch deft, clear filter and enter insert state."
   (interactive)
@@ -263,7 +264,8 @@ whether it has `deft-directory' somewhere in its path."
     (user-error "Not in zetteldeft territory")))
 
 (defun zd-file-rename ()
-  "Rename the current file via the deft function. Use this on files in the deft-directory."
+  "Rename the current file via the deft function.
+Use this on files in the deft-directory."
   (interactive)
   (zd--check)
     (let ((old-filename (buffer-file-name))
@@ -296,7 +298,7 @@ Does so by looking for `zd-title-prefix'."
 ZDFILE should be a full path to a note."
   (let ((baseName (file-name-base zdFile)))
     (replace-regexp-in-string
-     "[0-9]\\{2,\\}-[0-9-]+[[:space:]]"
+     "[0-9]\\{2,\\}-[0-9-]+[[:space:]-]"
      "" baseName)))
 
 (defun zd-insert-title ()
